@@ -44,9 +44,9 @@ Use publicly available protein primary sequence databases, such as PFAM (protein
 Protein pretrain models adopt the architecture of the BERT model, one minor difference is that the input of the model is a single protein sequence, and the token type embedding is removed. In other words, the data in the model will go through the embedding layer (word embedding + position embedding), N * transformer layers (self-attention layer + FFN layer), and the LM-head of the output layer.
 
 ### Pretrain Objective
-$$
+```math
 \mathcal{L}_{\mathrm{MLM}}=-\sum_{\hat{x} \in m(\mathbf{x})} \log p\left(\hat{x} \mid \mathbf{X}_{\backslash m(\mathbf{x})}\right)
-$$
+```
 
 
 ### Fine-tune
