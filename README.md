@@ -30,3 +30,22 @@ Protein is related to almost every life process. Therefore, analyzing the biolog
 - Code [ESM](https://github.com/facebookresearch/esm)
 
 
+
+## Pretrain Process
+Just like population evolution, active macromolecules (such as proteins) in organisms have also undergone heredity and mutation during the evolution process. After millions of years of natural selection, amino acid sequences that exist stably in nature have specific distribution patterns, and most of them are in a low-energy stable state. The distribution of amino acids in protein sequences is controlled by biological grammar, which can be captured using language models.
+
+We can use MLM (masked language model) to capture these biological "grammar".
+
+### Dataset
+
+Use publicly available protein primary sequence databases, such as PFAM (protein family), UniRef, etc.
+
+### Model
+Protein pretrain models adopt the architecture of the BERT model, one minor difference is that the input of the model is a single protein sequence, and the token type embedding is removed. In other words, the data in the model will go through the embedding layer (word embedding + position embedding), N * transformer layers (self-attention layer + FFN layer), and the LM-head of the output layer.
+
+### Pretrain Objective
+$$
+\mathcal{L}_{\mathrm{MLM}}=-\sum_{\hat{x} \in m(\mathbf{x})} \log p\left(\hat{x} \mid \mathbf{X}_{\backslash m(\mathbf{x})}\right)
+$$
+
+### Fine-tune
