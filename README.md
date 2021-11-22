@@ -44,10 +44,12 @@ Use publicly available protein primary sequence databases, such as PFAM (protein
 Protein pretrain models adopt the architecture of the BERT model, one minor difference is that the input of the model is a single protein sequence, and the token type embedding is removed. In other words, the data in the model will go through the embedding layer (word embedding + position embedding), N * transformer layers (self-attention layer + FFN layer), and the LM-head of the output layer.
 
 ### Pretrain Objective
+<img align="center" src="https://i.upmath.me/svg/%5Cmathcal%7BL%7D_%7B%5Cmathrm%7BMLM%7D%7D%3D-%5Csum_%7B%5Chat%7Bx%7D%20%5Cin%20m(%5Cmathbf%7Bx%7D)%7D%20%5Clog%20p%5Cleft(%5Chat%7Bx%7D%20%5Cmid%20%5Cmathbf%7BX%7D_%7B%5Cbackslash%20m(%5Cmathbf%7Bx%7D)%7D%5Cright)" alt="\mathcal{L}_{\mathrm{MLM}}=-\sum_{\hat{x} \in m(\mathbf{x})} \log p\left(\hat{x} \mid \mathbf{X}_{\backslash m(\mathbf{x})}\right)" />
+
 $$
 \mathcal{L}_{\mathrm{MLM}}=-\sum_{\hat{x} \in m(\mathbf{x})} \log p\left(\hat{x} \mid \mathbf{X}_{\backslash m(\mathbf{x})}\right)
 $$
-<img align="center" src="https://i.upmath.me/svg/%5Cmathcal%7BL%7D_%7B%5Cmathrm%7BMLM%7D%7D%3D-%5Csum_%7B%5Chat%7Bx%7D%20%5Cin%20m(%5Cmathbf%7Bx%7D)%7D%20%5Clog%20p%5Cleft(%5Chat%7Bx%7D%20%5Cmid%20%5Cmathbf%7BX%7D_%7B%5Cbackslash%20m(%5Cmathbf%7Bx%7D)%7D%5Cright)" alt="\mathcal{L}_{\mathrm{MLM}}=-\sum_{\hat{x} \in m(\mathbf{x})} \log p\left(\hat{x} \mid \mathbf{X}_{\backslash m(\mathbf{x})}\right)" />
+
 
 ### Fine-tune
 When the pre-training model converges (reflected by mlm loss or ppl), we can fine-tune the model on downstream tasks.
