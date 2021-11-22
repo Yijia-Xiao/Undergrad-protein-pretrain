@@ -29,6 +29,11 @@ Protein is related to almost every life process. Therefore, analyzing the biolog
 - Paper [Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences](https://www.biorxiv.org/content/10.1101/622803v4)
 - Code [ESM](https://github.com/facebookresearch/esm)
 
+### ProteinBert
+- Paper [ProteinBERT: A universal deep-learning model of protein sequence and function](https://www.biorxiv.org/content/10.1101/2021.05.24.445464v1)
+- Code [protein_bert](https://github.com/nadavbra/protein_bert)
+
+
 
 
 ## Pretrain Process
