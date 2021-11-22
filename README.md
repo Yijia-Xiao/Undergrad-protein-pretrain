@@ -48,4 +48,8 @@ $$
 \mathcal{L}_{\mathrm{MLM}}=-\sum_{\hat{x} \in m(\mathbf{x})} \log p\left(\hat{x} \mid \mathbf{X}_{\backslash m(\mathbf{x})}\right)
 $$
 
+
 ### Fine-tune
+When the pre-training model converges (reflected by mlm loss or ppl), we can fine-tune the model on downstream tasks.
+The fine-tuning of downstream tasks (such as secondary structure prediction, homology detection, thermal stability, fluorescence, contact prediction, etc.) requires a small amount of labelled data. In fine-tuning, the pre-training language model acts as an encoder. When we perform a full-sequence task, we generally use the representation corresponding to the CLS token to perform classification or regression prediction. When we perform a token-level prediction task, we usually take representation for each token for prediction. When we perform the token-pair prediction task, we can concatenate the representations corresponding to the two tokens to do downstream task prediction.
+
